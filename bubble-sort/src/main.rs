@@ -1,7 +1,9 @@
 mod pseudo_rand_gen;
+mod bubble_sort;
 
 use std::io;
 use std::io::Write;
+use crate::bubble_sort::bubble_sort;
 use crate::pseudo_rand_gen::PseudoRandGen;
 
 fn get_i32(prompt: &str) -> i32 {
@@ -32,8 +34,12 @@ fn main() {
     let length = get_i32("Please enter the number of items you want to sort:");
     let max_size = get_i32("Please enter the highest allowed number in the list:");
 
-    let vec_to_sort = make_random_vec(length, max_size);
+    let mut vec_to_sort = make_random_vec(length, max_size);
 
-    println!("List to sort::");
+    println!("Before Sort::");
     println!("{:?}", vec_to_sort);
+
+    let sorted = bubble_sort(&mut vec_to_sort);
+    println!("After Sort::");
+    println!("{:?}", sorted);
 }
