@@ -1,3 +1,5 @@
+mod args;
+
 use std::io;
 use std::io::Write;
 use bubble_sort;
@@ -28,6 +30,11 @@ fn make_random_vec(max_size: i32, max: i32) -> Vec<i32> {
 }
 
 fn main() {
+    let args = args::Args::parse();
+    let args::Args {
+        sort_type
+    } = args;
+
     let length = get_i32("Please enter the number of items you want to sort:");
     let max_size = get_i32("Please enter the highest allowed number in the list:");
 
@@ -36,7 +43,11 @@ fn main() {
     println!("Before Sort::");
     println!("{:?}", vec_to_sort);
 
-    let sorted = bubble_sort::bubble_sort::sort(vec_to_sort);
+    let sorted = match sort_type.as_str() {
+        "bubble-sort" => bubble_sort::bubble_sort::sort(vec_to_sort),
+        _ => unreachable!("Invalid sort type"), // This shouldn't happen due to validation
+    };
+
     println!("After Sort::");
     println!("{:?}", sorted);
 }
