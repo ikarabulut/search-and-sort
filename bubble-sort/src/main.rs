@@ -1,10 +1,9 @@
-mod pseudo_rand_gen;
 mod bubble_sort;
 
 use std::io;
 use std::io::Write;
 use crate::bubble_sort::bubble_sort;
-use crate::pseudo_rand_gen::PseudoRandGen;
+use utils::PseudoRandGen;
 
 fn get_i32(prompt: &str) -> i32 {
     println!("{prompt}");
