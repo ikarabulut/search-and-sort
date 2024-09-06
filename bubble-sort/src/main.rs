@@ -30,10 +30,10 @@ fn make_random_vec(max_size: i32, max: i32) -> Vec<i32> {
 
 fn main() {
     let length = get_i32("Please enter the number of items you want to sort:");
-    let max_size = get_i32("Please enter the max length of the array to sort:");
+    let max_size = get_i32("Please enter the highest allowed number in the list:");
 
     let vec_to_sort = make_random_vec(length, max_size);
 
     println!("List to sort::");
-    println!("{:#?}", vec_to_sort);
+    println!("{:?}", vec_to_sort);
 }
