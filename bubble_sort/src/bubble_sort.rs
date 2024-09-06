@@ -1,4 +1,4 @@
-pub fn bubble_sort(list: &mut Vec<i32>) -> &Vec<i32> {
+pub fn sort(mut list: Vec<i32>) -> Vec<i32> {
     let n = list.len();
     let result = loop {
         let mut swapped = false;
