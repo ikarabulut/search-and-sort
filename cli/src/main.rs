@@ -2,7 +2,6 @@ mod args;
 
 use std::io;
 use std::io::Write;
-use bubble_sort;
 use utils::PseudoRandGen;
 
 fn get_i32(prompt: &str) -> i32 {
